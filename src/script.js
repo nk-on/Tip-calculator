@@ -3,9 +3,13 @@ const tipPercentageButtons = document.querySelectorAll('.tip-selection');
 const tipAmountResult = document.querySelector('.tip-amount-result');
 const numberOfPeople = document.querySelector('#number-of-people');
 const totalAmountResult = document.querySelector('.total-amount-result');
+const customTip = document.querySelector('#custom-tip');
 function calculateTip(e) {
   e.preventDefault();
-  const tipPercentage = Number(e.target.textContent.slice(0, -1));
+  let tipPercentage =
+    e.target.textContent.length === 0
+      ? customTip.value
+      : Number(e.target.textContent.slice(0, -1));
   const billAmount = billAmountInput.value;
   const tipAmount = (billAmount * tipPercentage) / 100;
   if (billAmount.length === 0) {
@@ -27,6 +31,7 @@ function calculateTotalAmount(tipAmount) {
 function clear() {
   billAmountInput.value = '';
   numberOfPeople.value = '';
+  customTip.value = '';
 }
 tipPercentageButtons.forEach((button) => {
   button.addEventListener('click', calculateTip);

@@ -11,17 +11,17 @@ function calculateTip(e) {
   if (billAmount.length === 0) {
     alert('Enter bill amount');
     return;
-  }
+  };
   if (numberOfPeople.value.length === 0) {
     alert('Enter amount of people');
     return;
-  }
+  };
   tipAmountResult.textContent = tipAmount;
   calculateTotalAmount(tipAmount);
 }
 function calculateTotalAmount(tipAmount) {
-  const totalAmount = tipAmount * numberOfPeople.value;
-  totalAmountResult.textContent = totalAmount;
+  const totalAmount = tipAmount * Number(numberOfPeople.value);
+  totalAmountResult.textContent = totalAmount.toFixed(2);
 }
 tipPercentageButtons.forEach((button) => {
   button.addEventListener('click', calculateTip);

@@ -16,12 +16,12 @@ function calculateTip(e) {
     alert('Enter amount of people');
     return;
   };
-  tipAmountResult.textContent = tipAmount;
+  tipAmountResult.textContent = `${tipAmount}$`;
   calculateTotalAmount(tipAmount);
 }
 function calculateTotalAmount(tipAmount) {
   const totalAmount = tipAmount * Number(numberOfPeople.value);
-  totalAmountResult.textContent = totalAmount.toFixed(2);
+  totalAmountResult.textContent = `${totalAmount.toFixed(2)}$`;
 }
 tipPercentageButtons.forEach((button) => {
   button.addEventListener('click', calculateTip);

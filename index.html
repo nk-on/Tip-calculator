@@ -10,7 +10,7 @@
     <main>
       <form>
         <label for="Bill-amount">Bill</label>
-        <input type="text" name="Bill-amount" id="Bill-amount" />
+        <input type="number" name="Bill-amount" id="Bill-amount" />
         <div class="tip-amount">
           <button type="submit" class="tip-selection">5%</button>
           <button type="submit" class="tip-selection">10%</button>
@@ -20,18 +20,19 @@
           <input type="number" name="custom-tip" id="custom-tip" placeholder="custom">
         </div>
         <label for="Bill-amount">Number of People</label>
-        <input type="text" name="Bill-amount" id="Bill-amount" />
+        <input type="text" name="number-of-people" id="number-of-people" />
       </form>
       <div class="results">
         <div class="tip-amount-container">
           <h5>Tip amount</h5>
-          <p class="tip-amount"></p>
+          <p class="tip-amount-result"></p>
         </div>
-        <div class="total-amount-container">
+        <div class="tip-amount">
           <h5>Total amount</h5>
-          <p class="total-amount"></p>
+          <p class="total-amount-result"></p>
         </div>
       </div>
     </main>
+    <script src="src/script.js"></script>
   </body>
 </html>

@@ -44,3 +44,12 @@ main {
 .Reset-button{
   width: 80%;
 }
+label, h4{
+  font-weight: 700;
+  color: var(--grayish-cyan);
+}
+input{
+  border: none;
+  height: 5%;
+  background-color: var(--very-light-grayish-cyan);
+}

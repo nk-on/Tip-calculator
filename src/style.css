@@ -22,6 +22,7 @@ body {
   align-items: center;
 }
 main {
+  padding:30px;
   border-radius: 30px;
   width: min(500px, 60%);
   height: 30%;

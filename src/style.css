@@ -31,3 +31,16 @@ main {
   grid-template-columns: repeat(2,50%);
   align-items: center;
 }
+.results{
+  border-radius: 3px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 70%;
+  background-color: var(--very-dark-cyan);
+  color:var(--white)
+}
+.Reset-button{
+  width: 80%;
+}

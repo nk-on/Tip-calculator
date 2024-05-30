@@ -12,3 +12,16 @@
   --very-light-grayish-cyan: hsl(189, 41%, 97%);
   --white: hsl(0, 0%, 100%);
 }
+body{
+  height: 100vh;
+  background-color: var(--light-grayish-cyan);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main{
+  border-radius: 30px;
+  width: min(500px,60%);
+  height: 30%;
+  background-color: var(--white);
+}

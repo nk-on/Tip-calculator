@@ -12,6 +12,7 @@
   --light-grayish-cyan: hsl(185, 41%, 84%);
   --very-light-grayish-cyan: hsl(189, 41%, 97%);
   --white: hsl(0, 0%, 100%);
+  --red:#ff0000;
 }
 body {
   font-family: 'Space Mono', monospace;
@@ -50,6 +51,7 @@ label, h4{
 }
 input{
   border: none;
+  width: 90%;
   height: 30px;
   background-color: var(--very-light-grayish-cyan);
 }
@@ -63,6 +65,18 @@ button {
 }
 .Reset-button{
   background-color: var(--strong-cyan);
+}
+.container{
+  display: flex;
+  justify-content: space-between;
+}
+#Error-message{
+  color: var(--red);
+  font-weight: 400;
+  font-size: 10px;
+}
+.hidden{
+  display: none;
 }
 @media only screen and (max-width: 600px) {
   main{

@@ -24,8 +24,8 @@ body {
 main {
   padding:30px;
   border-radius: 30px;
-  width: min(500px, 60%);
-  height: 30%;
+  min-width: min(500px, 60%);
+  min-height: 30%;
   background-color: var(--white);
   display: grid;
   grid-template-columns: repeat(2,50%);
@@ -37,7 +37,7 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 70%;
+  min-height: 70%;
   background-color: var(--very-dark-cyan);
   color:var(--white)
 }
@@ -63,4 +63,10 @@ button {
 }
 .Reset-button{
   background-color: var(--strong-cyan);
+}
+@media only screen and (max-width: 600px) {
+  main{
+    display: grid;
+    grid-template-columns: 80%;
+  }
 }

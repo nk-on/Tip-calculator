@@ -38,6 +38,8 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+  gap:10px;
   min-height: 70%;
   background-color: var(--very-dark-cyan);
   color:var(--white)
@@ -79,6 +81,11 @@ button {
 }
 .hidden{
   display: none;
+}
+.container{
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
 }
 @media only screen and (max-width: 600px) {
   main{

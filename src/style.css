@@ -65,6 +65,8 @@ button {
 }
 .Reset-button{
   background-color: var(--strong-cyan);
+  color: var(--very-dark-cyan);
+  text-transform: uppercase;
 }
 .container{
   display: flex;

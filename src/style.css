@@ -22,7 +22,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap:10px;
+  gap: 10px;
 }
 main {
   padding: 30px;
@@ -32,13 +32,13 @@ main {
   background-color: var(--white);
   display: grid;
   grid-template-columns: repeat(2, 50%);
-  gap:10px;
+  gap: 10px;
   align-items: center;
 }
-.tip-amount{
+.tip-amount {
   display: grid;
-  grid-template-columns: repeat(3,1fr);
-  gap:10px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
 }
 .results {
   border-radius: 3px;
@@ -66,10 +66,16 @@ input {
   height: 30px;
   background-color: var(--very-light-grayish-cyan);
   font-weight: 700;
-  color:var(--very-dark-cyan);
+  color: var(--very-dark-cyan);
 }
-#number-of-people{
+#number-of-people {
   background-image: url('/images/icon-person.svg');
+  background-repeat: no-repeat;
+  background-position: 20px;
+  text-indent: 40px;
+}
+#Bill-amount {
+  background-image: url('/images/icon-dollar.svg');
   background-repeat: no-repeat;
   background-position: 20px;
   text-indent: 40px;
@@ -82,7 +88,7 @@ button {
   color: var(--white);
   padding: 5px;
 }
-button:hover{
+button:hover {
   background-color: var(--light-grayish-cyan);
   cursor: pointer;
 }

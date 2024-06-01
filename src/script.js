@@ -5,6 +5,7 @@ const numberOfPeople = document.querySelector('#number-of-people');
 const totalAmountResult = document.querySelector('.total-amount-result');
 const customTip = document.querySelector('#custom-tip');
 const resetButton = document.querySelector('.Reset-button');
+const errorMessege = document.querySelector('#Error-message');
 function calculateTip(e) {
   e.preventDefault();
   let tipPercentage =
@@ -18,7 +19,7 @@ function calculateTip(e) {
     return;
   }
   if (numberOfPeople.value.length === 0) {
-    alert('Enter amount of people');
+    errorMessege.classList.remove('hidden');
     return;
   }
   tipAmountResult.textContent = `${tipAmount}$`;
@@ -34,6 +35,7 @@ function clear() {
   customTip.value = '';
   tipAmountResult.textContent = '';
   totalAmountResult.textContent = '';
+  errorMessege.classList.add('hidden');
 }
 tipPercentageButtons.forEach((button) => {
   button.addEventListener('click', calculateTip);

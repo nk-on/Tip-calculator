@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 * {
   margin: 0;
   padding: 0;
@@ -11,4 +12,111 @@
   --light-grayish-cyan: hsl(185, 41%, 84%);
   --very-light-grayish-cyan: hsl(189, 41%, 97%);
   --white: hsl(0, 0%, 100%);
+  --red: #ff0000;
+}
+body {
+  font-family: 'Space Mono', monospace;
+  height: 100vh;
+  background-color: var(--light-grayish-cyan);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+main {
+  padding: 30px;
+  border-radius: 30px;
+  min-width: min(500px, 60%);
+  min-height: 30%;
+  background-color: var(--white);
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+  gap: 10px;
+  align-items: center;
+}
+.tip-amount {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+.results {
+  border-radius: 3px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  min-height: 70%;
+  background-color: var(--very-dark-cyan);
+  color: var(--white);
+}
+.Reset-button {
+  width: 80%;
+}
+label,
+h4 {
+  font-weight: 700;
+  color: var(--grayish-cyan);
+}
+input {
+  border: none;
+  width: 90%;
+  height: 30px;
+  background-color: var(--very-light-grayish-cyan);
+  font-weight: 700;
+  color: var(--very-dark-cyan);
+}
+#number-of-people {
+  background-image: url('/images/icon-person.svg');
+  background-repeat: no-repeat;
+  background-position: 20px;
+  text-indent: 40px;
+}
+#Bill-amount {
+  background-image: url('/images/icon-dollar.svg');
+  background-repeat: no-repeat;
+  background-position: 20px;
+  text-indent: 40px;
+}
+button {
+  font-weight: 700;
+  border-radius: 5px;
+  border: none;
+  background-color: var(--very-dark-cyan);
+  color: var(--white);
+  padding: 5px;
+}
+button:hover {
+  background-color: var(--light-grayish-cyan);
+  cursor: pointer;
+}
+.Reset-button {
+  background-color: var(--strong-cyan);
+  color: var(--very-dark-cyan);
+  text-transform: uppercase;
+}
+.container {
+  display: flex;
+  justify-content: space-between;
+}
+#Error-message {
+  color: var(--red);
+  font-weight: 400;
+  font-size: 10px;
+}
+.hidden {
+  display: none;
+}
+.container {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+}
+@media only screen and (max-width: 600px) {
+  main {
+    display: grid;
+    grid-template-columns: 80%;
+  }
 }

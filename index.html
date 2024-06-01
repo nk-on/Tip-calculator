@@ -5,35 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tip Calculator</title>
     <link rel="stylesheet" href="src/style.css" />
+    <script src="src/script.js" defer></script>
   </head>
   <body>
+    <img src="/images/logo.svg" alt="" srcset="">
     <main>
       <form>
         <label for="Bill-amount">Bill</label>
-        <input type="number" name="Bill-amount" id="Bill-amount" />
+        <input
+          type="number"
+          name="Bill-amount"
+          id="Bill-amount"
+        />
+        <h4>Select tip</h4>
         <div class="tip-amount">
           <button type="submit" class="tip-selection">5%</button>
           <button type="submit" class="tip-selection">10%</button>
-          <button type="submit" class="tip-selection" >15%</button>
+          <button type="submit" class="tip-selection">15%</button>
           <button type="submit" class="tip-selection">25%</button>
           <button type="submit" class="tip-selection">50%</button>
-          <input type="number" name="custom-tip" id="custom-tip" placeholder="custom">
+          <input
+            type="number"
+            name="custom-tip"
+            id="custom-tip"
+            placeholder="custom"
+          />
         </div>
-        <label for="Bill-amount">Number of People</label>
+        <label for="number-of-people">Number of People</label>
+        <label for="number-of-people" id="Error-message" class="hidden"
+          >Can't be zero</label
+        >
         <input type="text" name="number-of-people" id="number-of-people" />
       </form>
       <div class="results">
-        <div class="tip-amount-container">
+        <div class="container tip-amount-container">
           <h5>Tip amount</h5>
           <p class="tip-amount-result"></p>
         </div>
-        <div class="tip-amount">
+        <div class="container total-amount-container">
           <h5>Total amount</h5>
           <p class="total-amount-result"></p>
         </div>
+        <button class="Reset-button">Reset</button>
       </div>
-      <button class = "Reset-button">Reset</button>
     </main>
-    <script src="src/script.js"></script>
   </body>
 </html>

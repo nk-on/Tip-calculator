@@ -65,6 +65,8 @@ input {
   width: 90%;
   height: 30px;
   background-color: var(--very-light-grayish-cyan);
+  font-weight: 700;
+  color:var(--very-dark-cyan);
 }
 #number-of-people{
   background-image: url('/images/icon-person.svg');

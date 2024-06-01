@@ -66,6 +66,12 @@ input {
   height: 30px;
   background-color: var(--very-light-grayish-cyan);
 }
+#number-of-people{
+  background-image: url('/images/icon-person.svg');
+  background-repeat: no-repeat;
+  background-position: 20px;
+  text-indent: 40px;
+}
 button {
   font-weight: 700;
   border-radius: 5px;

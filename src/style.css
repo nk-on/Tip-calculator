@@ -69,13 +69,13 @@ input {
   color: var(--very-dark-cyan);
 }
 #number-of-people {
-  background-image: url('/images/icon-person.svg');
+  background-image: url('../images/icon-person.svg');
   background-repeat: no-repeat;
   background-position: 20px;
   text-indent: 40px;
 }
 #Bill-amount {
-  background-image: url('/images/icon-dollar.svg');
+  background-image: url('../images/icon-dollar.svg');
   background-repeat: no-repeat;
   background-position: 20px;
   text-indent: 40px;

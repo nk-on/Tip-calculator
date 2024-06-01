@@ -12,7 +12,7 @@
   --light-grayish-cyan: hsl(185, 41%, 84%);
   --very-light-grayish-cyan: hsl(189, 41%, 97%);
   --white: hsl(0, 0%, 100%);
-  --red:#ff0000;
+  --red: #ff0000;
 }
 body {
   font-family: 'Space Mono', monospace;
@@ -23,35 +23,42 @@ body {
   align-items: center;
 }
 main {
-  padding:30px;
+  padding: 30px;
   border-radius: 30px;
   min-width: min(500px, 60%);
   min-height: 30%;
   background-color: var(--white);
   display: grid;
-  grid-template-columns: repeat(2,50%);
+  grid-template-columns: repeat(2, 50%);
+  gap:10px;
   align-items: center;
 }
-.results{
+.tip-amount{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap:10px;
+}
+.results {
   border-radius: 3px;
   padding: 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap:10px;
+  gap: 10px;
   min-height: 70%;
   background-color: var(--very-dark-cyan);
-  color:var(--white)
+  color: var(--white);
 }
-.Reset-button{
+.Reset-button {
   width: 80%;
 }
-label, h4{
+label,
+h4 {
   font-weight: 700;
   color: var(--grayish-cyan);
 }
-input{
+input {
   border: none;
   width: 90%;
   height: 30px;
@@ -62,33 +69,33 @@ button {
   border-radius: 5px;
   border: none;
   background-color: var(--very-dark-cyan);
-  color:var(--white);
+  color: var(--white);
   padding: 5px;
 }
-.Reset-button{
+.Reset-button {
   background-color: var(--strong-cyan);
   color: var(--very-dark-cyan);
   text-transform: uppercase;
 }
-.container{
+.container {
   display: flex;
   justify-content: space-between;
 }
-#Error-message{
+#Error-message {
   color: var(--red);
   font-weight: 400;
   font-size: 10px;
 }
-.hidden{
+.hidden {
   display: none;
 }
-.container{
+.container {
   display: flex;
   justify-content: space-between;
   width: 80%;
 }
 @media only screen and (max-width: 600px) {
-  main{
+  main {
     display: grid;
     grid-template-columns: 80%;
   }

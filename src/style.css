@@ -13,6 +13,7 @@
   --White: hsl(0, 0%, 100%);
 }
 body{
+    font-family: "Space Mono", monospace;
     background-color: var(--Light-grayish-cyan);
     display: flex;
     flex-direction: column;

@@ -12,3 +12,40 @@
   --Very-light-grayish-cyan: hsl(189, 41%, 97%);
   --White: hsl(0, 0%, 100%);
 }
+body{
+    background-color: var(--Light-grayish-cyan);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+header{
+    height: 40vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+main{
+    width: min(90%,600px);
+    height: 300px;
+    background-color: var(--Very-light-grayish-cyan);
+}
+.input-container{
+    display: flex;
+    flex-direction: column;
+}
+main{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+.placeholder{
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+}
+.container{
+    display: flex;
+    align-items: center;
+    gap:10px;
+}

@@ -85,3 +85,12 @@ main{
     align-items: center;
     gap:10px;
 }
+.Reset-button{
+    padding: 10px 50px;
+    color: var(--White);
+    background-color: var(--Grayish-cyan);
+    border: none;
+}
+button{
+    cursor: pointer;
+}

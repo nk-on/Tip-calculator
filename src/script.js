@@ -4,15 +4,20 @@ const customInput = document.querySelector('#custom-input');
 const amountOfPeopleInput = document.querySelector('#number-of-people-input');
 const tipAmountResultContainer = document.querySelector('.tip-amount-result');
 const totalAmountContainer = document.querySelector('.total-amount-result');
-function validateInput(billAmount, amountOfPeople){
-  if(isNaN(billAmount) || isNaN(amountOfPeople)){
+function clearInputs() {
+  billInput.value = '';
+  amountOfPeopleInput.value = '';
+  customInput.value = '';
+}
+function validateInput(billAmount, amountOfPeople) {
+  if (isNaN(billAmount) || isNaN(amountOfPeople)) {
     alert('Enter valid number');
     return;
   }
-};
-function displayResults(tipAmount,totalAmount){
-    tipAmountResultContainer.textContent = `$ ${String(tipAmount)}`;
-    totalAmountContainer.textContent = `$ ${String(totalAmount)}`;
+}
+function displayResults(tipAmount, totalAmount) {
+  tipAmountResultContainer.textContent = `$ ${String(tipAmount)}`;
+  totalAmountContainer.textContent = `$ ${String(totalAmount)}`;
 }
 function calculate(e) {
   e.preventDefault();
@@ -26,7 +31,8 @@ function calculate(e) {
     : this.dataset.percentage;
   const tipAmount = (billAmount * percentageAmount) / 100;
   const totalAmount = (tipAmount * amountOfPeople).toFixed(2);
-  displayResults(tipAmount,totalAmount);
+  displayResults(tipAmount, totalAmount);
+  clearInputs();
 }
 tipPercentageButtons.forEach((button) => {
   button.addEventListener('click', calculate);

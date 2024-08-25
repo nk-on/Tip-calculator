@@ -4,8 +4,12 @@ const customInput = document.querySelector('#custom-input');
 const amountOfPeopleInput = document.querySelector('#number-of-people-input');
 const tipAmountResultContainer = document.querySelector('.tip-amount-result');
 const totalAmountContainer = document.querySelector('.total-amount-result');
-//Application should alert user with error if they don;t enter anything or dont enter number
-//application should calculate tip amount and total amount when they click on tip percatage button
+function validateInput(billAmount, amountOfPeople){
+  if(isNaN(billAmount) || isNaN(amountOfPeople)){
+    alert('Enter valid number');
+    return;
+  }
+};
 function displayResults(tipAmount,totalAmount){
     tipAmountResultContainer.textContent = `$ ${String(tipAmount)}`;
     totalAmountContainer.textContent = `$ ${String(totalAmount)}`;
@@ -16,6 +20,7 @@ function calculate(e) {
     Number(billInput.value),
     Number(amountOfPeopleInput.value),
   ];
+  validateInput(billAmount, amountOfPeople);
   const percentageAmount = isNaN(this.dataset.percentage)
     ? this.value
     : this.dataset.percentage;

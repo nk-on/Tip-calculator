@@ -4,6 +4,10 @@ const customInput = document.querySelector('#custom-input');
 const amountOfPeopleInput = document.querySelector('#number-of-people-input');
 const tipAmountResultContainer = document.querySelector('.tip-amount-result');
 const totalAmountContainer = document.querySelector('.total-amount-result');
+function saveToLocalStorage(tipAmount, totalAmount){
+  localStorage.setItem('tipAmount',tipAmount);
+  localStorage.setItem('totalAmount',totalAmount);
+}
 function clearInputs() {
   billInput.value = '';
   amountOfPeopleInput.value = '';
@@ -31,6 +35,7 @@ function calculate(e) {
     : this.dataset.percentage;
   const tipAmount = (billAmount * percentageAmount) / 100;
   const totalAmount = (tipAmount * amountOfPeople).toFixed(2);
+  saveToLocalStorage(tipAmount, totalAmount);
   displayResults(tipAmount, totalAmount);
   clearInputs();
 }
@@ -38,3 +43,6 @@ tipPercentageButtons.forEach((button) => {
   button.addEventListener('click', calculate);
 });
 customInput.addEventListener('input', calculate);
+const initialTipAmount = localStorage.getItem('tipAmount') || '';
+const initialTotalAmount = localStorage.getItem('totalAmount') || '';
+displayResults(initialTipAmount,initialTotalAmount);

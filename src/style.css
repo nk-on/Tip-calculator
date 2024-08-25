@@ -28,8 +28,8 @@ header{
 main{
     border-radius: 30px;
     box-shadow: 5px 9px 34px 0px rgba(0,0,0,0.75);
-    width: min(90%,700px);
-    height: 300px;
+    min-width: min(90%,700px);
+    min-height: 300px;
     background-color: var(--Very-light-grayish-cyan);
 }
 .container{
@@ -41,21 +41,24 @@ main{
     display: flex;
     flex-direction: column;
 }
-input{
-    width: 50%;
-}
 #custom-input{
-    width: 20%;
+    background-color: var(--Light-grayish-cyan);
+}
+.percentage-buttons{
+    display: grid;
+    gap:20px;
+    grid-template-columns: repeat(3,33%);
 }
 .tip-percentage{
     background-color: var(--Very-dark-cyan);
+    font-weight: 700;
     color: var(--White);
-    width: 20%;
-    height: 20px;
+    height: 30px;
     border: none;
 }
 .results-container{
-    padding: 50px;
+    width: 40%;
+    padding: 5px 0;
     background-color: var(--Very-dark-cyan);
     border-radius: 20px;
 }
@@ -70,6 +73,7 @@ h3{
     color:var(--Very-light-grayish-cyan)
 }
 main{
+    padding: 10px 0;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -88,7 +92,7 @@ main{
 .Reset-button{
     padding: 10px 50px;
     color: var(--White);
-    background-color: var(--Grayish-cyan);
+    background-color: var(--Dark-grayish-cyan);
     border: none;
 }
 button{

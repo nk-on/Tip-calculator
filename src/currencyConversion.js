@@ -13,6 +13,7 @@ function changeSign(currency) {
     ['GEL', '₾'], // Georgian Lari
   ]);
   const currencySign = currencySymbols.get(currency);
+  localStorage.setItem("currencySign",currencySign);
   displayResults(initialTipAmount,initialTotalAmount,currencySign);
   billInput.placeholder = customInput.placeholder = currencySign;
 }

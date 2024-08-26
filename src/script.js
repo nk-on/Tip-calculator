@@ -52,4 +52,4 @@ tipPercentageButtons.forEach((button) => {
 });
 customInput.addEventListener('input', calculate);
 displayResults(initialTipAmount,initialTotalAmount,currencySign);
-export{displayResults,initialTipAmount,initialTotalAmount}
+export{displayResults,initialTipAmount,initialTotalAmount,billInput,customInput}

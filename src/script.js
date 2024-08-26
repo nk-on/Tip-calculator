@@ -8,6 +8,7 @@ const totalAmountContainer = document.querySelector('.total-amount-result');
 otherwise empty string*/
 const initialTipAmount = localStorage.getItem('tipAmount') || '';
 const initialTotalAmount = localStorage.getItem('totalAmount') || '';
+const currencySign = localStorage.getItem('currencySign') || '$';
 function saveToLocalStorage(tipAmount, totalAmount){
   localStorage.setItem('tipAmount',tipAmount);
   localStorage.setItem('totalAmount',totalAmount);
@@ -23,9 +24,9 @@ function validateInput(billAmount, amountOfPeople) {
     return;
   }
 }
-function displayResults(tipAmount, totalAmount) {
-  tipAmountResultContainer.textContent = `$ ${String(tipAmount)}`;
-  totalAmountContainer.textContent = `$ ${String(totalAmount)}`;
+function displayResults(tipAmount, totalAmount,currencySign) {
+  tipAmountResultContainer.textContent = `${currencySign} ${String(tipAmount)}`;
+  totalAmountContainer.textContent = `${currencySign} ${String(totalAmount)}`;
 }
 function calculate(e) {
   e.preventDefault();
@@ -50,4 +51,5 @@ tipPercentageButtons.forEach((button) => {
   button.addEventListener('click', calculate);
 });
 customInput.addEventListener('input', calculate);
-displayResults(initialTipAmount,initialTotalAmount);
+displayResults(initialTipAmount,initialTotalAmount,currencySign);
+export{displayResults,initialTipAmount,initialTotalAmount}

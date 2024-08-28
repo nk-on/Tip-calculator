@@ -23,7 +23,9 @@ function changeSign(currency) {
   billInput.placeholder = customInput.placeholder = currencySign;
 }
 async function getCurrencyRates(totalAmount, tipAmount, targetCurrency) {
-  console.log(totalAmount, tipAmount);
+  if(!totalAmount || !tipAmount){
+    return;
+  }
   const tipAmountData = fetch(
     `https://${host}/latest?amount=${totalAmount}&from=${currentCurrency}&to${targetCurrency}`
   ).then((res) => res.json());

@@ -27,6 +27,7 @@ function validateInput(billAmount, amountOfPeople) {
 function displayResults(tipAmount, totalAmount,currencySign) {
   tipAmountResultContainer.textContent = `${currencySign} ${String(tipAmount)}`;
   totalAmountContainer.textContent = `${currencySign} ${String(totalAmount)}`;
+  billInput.placeholder = customInput.placeholder = currencySign;
 }
 function calculate(e) {
   e.preventDefault();

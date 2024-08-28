@@ -45,7 +45,7 @@ function calculate(e) {
   const tipAmount = (billAmount * percentageAmount) / 100;
   const totalAmount = (tipAmount * amountOfPeople).toFixed(2);
   saveToLocalStorage(tipAmount, totalAmount);
-  displayResults(tipAmount, totalAmount);
+  displayResults(tipAmount, totalAmount,currencySign);
   clearInputs();
 }
 tipPercentageButtons.forEach((button) => {

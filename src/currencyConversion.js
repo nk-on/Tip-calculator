@@ -7,7 +7,8 @@ import {
 } from './script.js';
 const host = 'api.frankfurter.app';
 const currencyOptions = document.querySelector('#currency-selector');
-let currentCurrency = 'USD';
+let currentCurrency = localStorage.getItem('currencySign') || 'USD';
+let currencySign;
 //App should be able to convert exsisting tip Amount and total amount to different currency
 //if there is no default currency app should be just able to add differenct currency signs
 function changeSign(currency) {
@@ -17,7 +18,7 @@ function changeSign(currency) {
     ['GBP', '£'], // British Pound Sterling
     ['CHF', 'Fr.'], // Swiss Franc
   ]);
-  const currencySign = currencySymbols.get(currency);
+  currencySign = currencySymbols.get(currency);
   localStorage.setItem('currencySign', currencySign);
   displayResults(initialTipAmount, initialTotalAmount, currencySign);
   billInput.placeholder = customInput.placeholder = currencySign;
@@ -37,7 +38,7 @@ async function getCurrencyRates(totalAmount, tipAmount, targetCurrency) {
     totalAmountData,
   ]);
   const [convertedTotalAmount,convertedTipAmount] = [totalAmountResponse.rates[currentCurrency],tipAmountResponse.rates[currentCurrency]];
-  displayResults(convertedTipAmount,convertedTotalAmount,currentCurrency);
+  displayResults(convertedTipAmount,convertedTotalAmount,currencySign);
 }
 currencyOptions.addEventListener('change', (e) => {
   changeSign(e.target.value);

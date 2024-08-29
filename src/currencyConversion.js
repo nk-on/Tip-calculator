@@ -8,9 +8,10 @@ import {
 const host = 'api.frankfurter.app';
 const currencyOptions = document.querySelector('#currency-selector');
 let currentCurrency = localStorage.getItem('currencySign') || 'USD';
-let currencySign;
-//App should be able to convert exsisting tip Amount and total amount to different currency
-//if there is no default currency app should be just able to add differenct currency signs
+let currencySign = localStorage.getItem('currencySign') || '$';
+/*Changing currency signs in the app when user  chooses different currency sign by 
+  choosing currency sign from currencySymbols map and assigning to global currencySign variable
+*/
 function changeSign(currency) {
   const currencySymbols = new Map([
     ['USD', '$'], // United States Dollar
@@ -23,6 +24,9 @@ function changeSign(currency) {
   displayResults(initialTipAmount, initialTotalAmount, currencySign);
   billInput.placeholder = customInput.placeholder = currencySign;
 }
+/* Converting exsisting total Amount and tip amount variables by fetching and resolving API for both total amount and tip amount variables
+   and calling displayResults function which on itself is responsible for diplaying reuslts on app
+*/
 async function getCurrencyRates(totalAmount, tipAmount, targetCurrency) {
   if(!totalAmount || !tipAmount){
     return;

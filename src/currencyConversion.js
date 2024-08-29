@@ -4,6 +4,7 @@ import {
   displayResults,
   initialTipAmount,
   initialTotalAmount,
+  saveToLocalStorage,
 } from './script.js';
 const host = 'api.frankfurter.app';
 const currencyOptions = document.querySelector('#currency-selector');
@@ -43,6 +44,7 @@ async function getCurrencyRates(totalAmount, tipAmount, targetCurrency) {
   ]);
   const [convertedTotalAmount,convertedTipAmount] = [totalAmountResponse.rates[currentCurrency],tipAmountResponse.rates[currentCurrency]];
   displayResults(convertedTipAmount,convertedTotalAmount,currencySign);
+  saveToLocalStorage(convertedTipAmount,convertedTotalAmount);
 }
 currencyOptions.addEventListener('change', (e) => {
   changeSign(e.target.value);

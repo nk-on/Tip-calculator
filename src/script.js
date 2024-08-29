@@ -19,9 +19,10 @@ function clearInputs() {
   customInput.value = '';
 }
 function validateInput(billAmount, amountOfPeople) {
-  if (isNaN(billAmount) || isNaN(amountOfPeople)) {
+  console.log(billAmount,amountOfPeople)
+  if (!billAmount.length || !amountOfPeople.length) {
     alert('Enter valid number');
-    return;
+    return true;
   }
 }
 function displayResults(tipAmount, totalAmount,currencySign) {
@@ -31,11 +32,11 @@ function displayResults(tipAmount, totalAmount,currencySign) {
 }
 function calculate(e) {
   e.preventDefault();
+  if(validateInput(billInput.value, amountOfPeopleInput.value)) return;
   const [billAmount, amountOfPeople] = [
     Number(billInput.value),
     Number(amountOfPeopleInput.value),
   ];
-  validateInput(billAmount, amountOfPeople);
   /*Setting percentage amount -  if user clicked on percentage button,  setting percentage amount as 
    data set property of this button otherwise number which was entered by user in custom form
   */

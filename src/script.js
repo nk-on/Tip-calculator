@@ -8,6 +8,7 @@ const totalAmountContainer = document.querySelector('.total-amount-result');
 otherwise empty string*/
 const initialTipAmount = localStorage.getItem('tipAmount') || '';
 const initialTotalAmount = localStorage.getItem('totalAmount') || '';
+const currencySign = localStorage.getItem('currencySign') || '$';
 function saveToLocalStorage(tipAmount, totalAmount){
   localStorage.setItem('tipAmount',tipAmount);
   localStorage.setItem('totalAmount',totalAmount);
@@ -15,25 +16,26 @@ function saveToLocalStorage(tipAmount, totalAmount){
 function clearInputs() {
   billInput.value = '';
   amountOfPeopleInput.value = '';
-  customInput.value = '';
 }
 function validateInput(billAmount, amountOfPeople) {
-  if (isNaN(billAmount) || isNaN(amountOfPeople)) {
+  console.log(billAmount,amountOfPeople)
+  if (!billAmount.length || !amountOfPeople.length) {
     alert('Enter valid number');
-    return;
+    return true;
   }
 }
-function displayResults(tipAmount, totalAmount) {
-  tipAmountResultContainer.textContent = `$ ${String(tipAmount)}`;
-  totalAmountContainer.textContent = `$ ${String(totalAmount)}`;
+function displayResults(tipAmount, totalAmount,currencySign) {
+  tipAmountResultContainer.textContent = `${currencySign} ${String(tipAmount)}`;
+  totalAmountContainer.textContent = `${currencySign} ${String(totalAmount)}`;
+  billInput.placeholder = customInput.placeholder = currencySign;
 }
 function calculate(e) {
   e.preventDefault();
+  if(validateInput(billInput.value, amountOfPeopleInput.value)) return;
   const [billAmount, amountOfPeople] = [
     Number(billInput.value),
     Number(amountOfPeopleInput.value),
   ];
-  validateInput(billAmount, amountOfPeople);
   /*Setting percentage amount -  if user clicked on percentage button,  setting percentage amount as 
    data set property of this button otherwise number which was entered by user in custom form
   */
@@ -43,11 +45,12 @@ function calculate(e) {
   const tipAmount = (billAmount * percentageAmount) / 100;
   const totalAmount = (tipAmount * amountOfPeople).toFixed(2);
   saveToLocalStorage(tipAmount, totalAmount);
-  displayResults(tipAmount, totalAmount);
+  displayResults(tipAmount, totalAmount,currencySign);
   clearInputs();
 }
 tipPercentageButtons.forEach((button) => {
   button.addEventListener('click', calculate);
 });
 customInput.addEventListener('input', calculate);
-displayResults(initialTipAmount,initialTotalAmount);
+displayResults(initialTipAmount,initialTotalAmount,currencySign);
+export{displayResults,initialTipAmount,initialTotalAmount,billInput,customInput,saveToLocalStorage}

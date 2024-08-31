@@ -3,8 +3,6 @@ import {
   billInput,
   customInput,
   displayResults,
-  initialTipAmount,
-  initialTotalAmount,
   saveToLocalStorage,
 } from './script.js';
 const host = 'api.frankfurter.app';
@@ -23,7 +21,7 @@ function changeSign(currency) {
   ]);
   currencySign = currencySymbols.get(currency);
   localStorage.setItem('currencySign', currencySign);
-  displayResults(initialTipAmount, initialTotalAmount, currencySign);
+  displayResults('', '', currencySign);
   billInput.placeholder = customInput.placeholder = currencySign;
 }
 /* Converting exsisting total Amount and tip amount variables by fetching and resolving API for both total amount and tip amount variables

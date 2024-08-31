@@ -4,6 +4,7 @@ const customInput = document.querySelector('#custom-input');
 const amountOfPeopleInput = document.querySelector('#number-of-people-input');
 const tipAmountResultContainer = document.querySelector('.tip-amount-result');
 const totalAmountContainer = document.querySelector('.total-amount-result');
+const resetButton = document.querySelector('.Reset-button');
 /*Setting initial tip amount and total amount which will be data from local storage 
 otherwise empty string*/
 const initialTipAmount = localStorage.getItem('tipAmount') || '';
@@ -29,6 +30,11 @@ function displayResults(tipAmount, totalAmount,currencySign) {
   totalAmountContainer.textContent = `${currencySign} ${String(totalAmount)}`;
   billInput.placeholder = customInput.placeholder = currencySign;
 }
+function resetData(){
+  clearInputs();
+  displayResults('','','$')
+  localStorage.clear();
+}
 function calculate(e) {
   e.preventDefault();
   if(validateInput(billInput.value, amountOfPeopleInput.value)) return;
@@ -51,6 +57,7 @@ function calculate(e) {
 tipPercentageButtons.forEach((button) => {
   button.addEventListener('click', calculate);
 });
+resetButton.addEventListener('click',resetData)
 customInput.addEventListener('input', calculate);
 displayResults(initialTipAmount,initialTotalAmount,currencySign);
 export{displayResults,initialTipAmount,initialTotalAmount,billInput,customInput,saveToLocalStorage}

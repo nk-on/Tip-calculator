@@ -52,7 +52,6 @@ currencyOptions.addEventListener('change', (e) => {
     localStorage.getItem('totalAmount'),
     localStorage.getItem('tipAmount'),
   ];
-  console.log(totalAmount, tipAmount)
   localStorage.setItem('currency', e.target.value);
   getCurrencyRates(totalAmount, tipAmount, e.target.value);
   currentCurrency = localStorage.getItem('currency');

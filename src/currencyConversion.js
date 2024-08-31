@@ -31,6 +31,7 @@ function changeSign(currency) {
 */
 async function getCurrencyRates(totalAmount, tipAmount, targetCurrency) {
   if(!totalAmount || !tipAmount){
+    console.log('i work')
     return;
   }
   const tipAmountData = fetch(
@@ -53,7 +54,9 @@ currencyOptions.addEventListener('change', (e) => {
     localStorage.getItem('totalAmount'),
     localStorage.getItem('tipAmount'),
   ];
-  getCurrencyRates(totalAmount, tipAmount, e.target.value);
+  console.log(totalAmount, tipAmount)
   localStorage.setItem('currency', e.target.value);
+  getCurrencyRates(totalAmount, tipAmount, e.target.value);
   currentCurrency = localStorage.getItem('currency');
 });
+export {currencySign}

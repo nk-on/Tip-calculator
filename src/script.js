@@ -1,4 +1,5 @@
 'use strict'
+import { currencySign } from "./currencyConversion.js";
 const billInput = document.querySelector('#bill-input');
 const tipPercentageButtons = document.querySelectorAll('.tip-percentage');
 const customInput = document.querySelector('#custom-input');
@@ -10,7 +11,7 @@ const resetButton = document.querySelector('.Reset-button');
 otherwise empty string*/
 const initialTipAmount = localStorage.getItem('tipAmount') || '';
 const initialTotalAmount = localStorage.getItem('totalAmount') || '';
-const currencySign = localStorage.getItem('currencySign') || '$';
+const currencyOptions = document.querySelector('#currency-selector')
 function saveToLocalStorage(tipAmount, totalAmount){
   localStorage.setItem('tipAmount',tipAmount);
   localStorage.setItem('totalAmount',totalAmount);
@@ -33,7 +34,8 @@ function displayResults(tipAmount, totalAmount,currencySign) {
 }
 function resetData(){
   clearInputs();
-  displayResults('','','$')
+  displayResults('','','$');
+  currencyOptions.value = 'USD';
   localStorage.clear();
 }
 function calculate(e) {

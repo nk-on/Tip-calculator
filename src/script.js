@@ -16,7 +16,6 @@ function saveToLocalStorage(tipAmount, totalAmount){
 function clearInputs() {
   billInput.value = '';
   amountOfPeopleInput.value = '';
-  customInput.value = '';
 }
 function validateInput(billAmount, amountOfPeople) {
   console.log(billAmount,amountOfPeople)
@@ -54,4 +53,4 @@ tipPercentageButtons.forEach((button) => {
 });
 customInput.addEventListener('input', calculate);
 displayResults(initialTipAmount,initialTotalAmount,currencySign);
-export{displayResults,initialTipAmount,initialTotalAmount,billInput,customInput}
+export{displayResults,initialTipAmount,initialTotalAmount,billInput,customInput,saveToLocalStorage}

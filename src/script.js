@@ -16,6 +16,12 @@ let percentageAmount = 5;
 function saveToLocalStorage(tipAmount, totalAmount) {
   localStorage.setItem('tipAmount', tipAmount);
   localStorage.setItem('totalAmount', totalAmount);
+  // localStorage.setItem('billAmount',billAmount);
+  // localStorage.setItem('amountOfPeople',amountOfPeople);
+}
+function saveInputs(billAmount, amountOfPeople) {
+  localStorage.setItem('billAmount', billAmount);
+  localStorage.setItem('amountOfPeople', amountOfPeople);
 }
 function clearInputs() {
   billInput.value = '';
@@ -33,7 +39,6 @@ function resetData() {
   localStorage.clear();
 }
 function calculate() {
-  // e.preventDefault();
   if (billInput.value !== '' && amountOfPeopleInput.value !== '') {
     const [billAmount, amountOfPeople] = [
       Number(billInput.value),
@@ -42,27 +47,28 @@ function calculate() {
     /*Setting percentage amount -  if user clicked on percentage button,  setting percentage amount as 
      data set property of this button otherwise number which was entered by user in custom form
     */
-    
     const tipAmount = (billAmount * percentageAmount) / 100;
     const totalAmount = (tipAmount * amountOfPeople).toFixed(2);
+    saveInputs(billAmount,amountOfPeople);
     saveToLocalStorage(tipAmount, totalAmount);
     displayResults(tipAmount, totalAmount, currencySign);
-  };
-};
-function setPercentage(e){
+  }
+}
+function setPercentage(e) {
   e.preventDefault();
   percentageAmount = Number(this.dataset.percentage);
-  console.log(this.dataset)
   calculate();
-};
-tipPercentageButtons.forEach((button)=>{
-  button.addEventListener('click',setPercentage)
-})
+}
+tipPercentageButtons.forEach((button) => {
+  button.addEventListener('click', setPercentage);
+});
 billInput.addEventListener('input', calculate);
 amountOfPeopleInput.addEventListener('input', calculate);
 resetButton.addEventListener('click', resetData);
 customInput.addEventListener('input', calculate);
 displayResults(initialTipAmount, initialTotalAmount, currencySign);
+billInput.value = localStorage.getItem('billAmount') || '';
+amountOfPeopleInput.value = localStorage.getItem('amountOfPeople') || '';
 export {
   displayResults,
   initialTipAmount,

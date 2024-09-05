@@ -22,7 +22,7 @@ function changeSign(currency) {
   currencySign = currencySymbols.get(currency);
   localStorage.setItem('currencySign', currencySign);
   displayResults('', '', currencySign);
-  billInput.placeholder = customInput.placeholder = currencySign;
+  billInput.placeholder = currencySign;
 }
 /* Converting exsisting total Amount and tip amount variables by fetching and resolving API for both total amount and tip amount variables
    and calling displayResults function which on itself is responsible for diplaying reuslts on app

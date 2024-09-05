@@ -11,8 +11,8 @@
   --Dark-grayish-cyan: hsl(186, 14%, 43%);
   --Grayish-cyan: hsl(184, 14%, 56%);
   --Light-grayish-cyan: hsl(185, 41%, 84%);
-  --Very-light-grayish-cyan: hsl(189, 41%, 97%);
-  --White: hsl(0, 0%, 100%);
+  --Very-light-grayish-cyan:  hsla(185, 38%, 97%, 1);
+  --White: hsla(0, 0%, 100%, 1);
 }
 body{
     font-family: "Space Mono", monospace;
@@ -33,10 +33,11 @@ main{
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
+    gap:30px;
     border-radius: 30px;
     min-width: min(90%,920px);
     min-height: 481px;
-    background-color: var(--Very-light-grayish-cyan);
+    background-color: var(--White);
 }
 .container{
     display: flex;
@@ -47,21 +48,32 @@ main{
     display: flex;
     flex-direction: column;
 }
+.input-container input{
+    width: max(80%,379px);
+    height: 48px;
+    background-color: var(--Very-light-grayish-cyan);
+    border: none;
+}
+.input-container input:hover{
+    border: 2px solid var(--Light-green-cyan);
+}
 #custom-input{
     background-color: var(--Light-grayish-cyan);
 }
 .percentage-buttons{
     display: grid;
     gap:20px;
-    grid-template-columns: repeat(3,33%);
+    grid-template-columns: repeat(3,117px);
 }
 .tip-percentage{
     background-color: var(--Very-dark-cyan);
     font-weight: 700;
     color: var(--White);
-    height: 30px;
+    height: 48px;
     border: none;
+    border-radius: 10px;
 }
+/*Styling container which displays calculation results*/
 .results-container{
     display: flex;
     flex-direction: column;

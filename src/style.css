@@ -5,7 +5,9 @@
   box-sizing: border-box;
 }
 :root {
-  --Very-dark-cyan: hsl(183, 100%, 15%);
+  --Very-dark-cyan: hsl(183, 100%, 15%,1);
+  --Light-green-cyan:hsla(172, 67%, 45%, 1);
+  --Very-light-cyan:hsla(172, 61%, 77%, 1);
   --Dark-grayish-cyan: hsl(186, 14%, 43%);
   --Grayish-cyan: hsl(184, 14%, 56%);
   --Light-grayish-cyan: hsl(185, 41%, 84%);
@@ -26,10 +28,14 @@ header{
     align-items: center;
 }
 main{
+    padding: 10px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
     border-radius: 30px;
-    box-shadow: 5px 9px 34px 0px rgba(0,0,0,0.75);
-    min-width: min(90%,700px);
-    min-height: 300px;
+    min-width: min(90%,920px);
+    min-height: 481px;
     background-color: var(--Very-light-grayish-cyan);
 }
 .container{
@@ -57,43 +63,55 @@ main{
     border: none;
 }
 .results-container{
-    width: 40%;
-    padding: 5px 0;
-    background-color: var(--Very-dark-cyan);
-    border-radius: 20px;
-}
-.title{
-    color:var(--White)
-}
-.result-placeholder{
-    display: flex;
-    gap:10px;
-}
-h3{
-    color:var(--Very-light-grayish-cyan)
-}
-main{
-    padding: 10px 0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: center;
-}
-.placeholder{
     display: flex;
     flex-direction: column;
     gap:10px;
 }
-.container{
+.results-placeholder{
     display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 5px 30px;
+    width: min(70%,413px);
+    height: 417px;
+    background-color: var(--Very-dark-cyan);
+    border-radius: 20px;
+}
+.calculated-results{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    gap:10px;
+}
+.title-container{
+    color: var(--White);
+}
+.title{
+    font-size: 16px;
+    font-weight: 700;
+}
+.title-container span{
+    color: var(--Grayish-cyan);
+}
+.result{
+    word-spacing: -20px;
+    font-size: 48px;
+    color: var(--Light-green-cyan);
+    
 }
 .Reset-button{
-    padding: 10px 50px;
-    color: var(--White);
-    background-color: var(--Dark-grayish-cyan);
+    border-radius: 5px;
+    color: var(--Very-dark-cyan);
+    font-weight: 700;
+    margin: 0 auto;
+    width: min(80%,333px);
+    height: 48px;
+    background-color: var(--Light-green-cyan);
     border: none;
+    text-transform: uppercase;
+}
+.Reset-button:hover{
+    background: hsla(172, 61%, 77%, 1);
 }
 button{
     cursor: pointer;

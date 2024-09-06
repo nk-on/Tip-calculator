@@ -38,6 +38,15 @@ function resetData() {
   currencyOptions.value = 'USD';
   localStorage.clear();
 }
+function invalidInput(billInput,amountOfPeople){
+  if(isNaN(billInput) || isNaN(amountOfPeople)){
+    return true;
+  };
+  if(billInput <= 0 || amountOfPeople <= 0){
+    return true;
+  };
+  return false;
+}
 function calculate() {
   if (billInput.value !== '' && amountOfPeopleInput.value !== '') {
     const [billAmount, amountOfPeople] = [
@@ -47,6 +56,11 @@ function calculate() {
     /*Setting percentage amount -  if user clicked on percentage button,  setting percentage amount as 
      data set property of this button otherwise number which was entered by user in custom form
     */
+    if(invalidInput(billAmount,amountOfPeople)){
+      alert('Invalid input');
+      clearInputs();
+      return;
+    }
     const tipAmount = (billAmount * percentageAmount) / 100;
     const totalAmount = (tipAmount * amountOfPeople).toFixed(2);
     saveInputs(billAmount,amountOfPeople);

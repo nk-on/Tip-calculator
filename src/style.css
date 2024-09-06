@@ -49,7 +49,7 @@ main {
 }
 .input-container .input-form {
   font-family: "Space Mono";
-  width: 379px;
+  width: 389px;
   height: 48px;
   background-color: var(--Very-light-grayish-cyan);
   border: none;
@@ -77,6 +77,7 @@ input[type="number"]::-webkit-inner-spin-button {
     margin: 0;
 }
 #custom-input {
+  padding: 5px;
   font-family: "Space Mono";
   font-size: 24px;
   border: none;
@@ -96,12 +97,16 @@ input[type="number"]::-webkit-inner-spin-button {
   grid-template-columns: repeat(3, 117px);
 }
 .tip-percentage {
+  font-family: "Space Mono";
   background-color: var(--Very-dark-cyan);
   font-weight: 700;
   color: var(--White);
   height: 48px;
   border: none;
-  border-radius: 10px;
+  border-radius: 5px;
+}
+#custom-button:hover{
+  background-color: var(--Light-green-cyan);
 }
 /*Styling container which displays calculation results*/
 .results-container {
@@ -161,14 +166,17 @@ button {
   main{
     height: 100%;
   }
+  .input-container .input-form {
+    width: 311px;
+  }
   .placeholder{
     display: flex;
     align-items: center;
     flex-direction: column;
-    min-width: 80%;
+    min-width: 70%;
   }
   .input-container{
-     width: 90%;
+     width: 80%;
   }
   .percentage-buttons {
     display: grid;

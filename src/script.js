@@ -30,7 +30,6 @@ function clearInputs() {
 function displayResults(tipAmount, totalAmount, currencySign) {
   tipAmountResultContainer.textContent = `${currencySign} ${String(tipAmount)}`;
   totalAmountContainer.textContent = `${currencySign} ${String(totalAmount)}`;
-  billInput.placeholder = currencySign;
 }
 function resetData() {
   clearInputs();

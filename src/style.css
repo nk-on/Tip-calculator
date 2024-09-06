@@ -53,6 +53,11 @@ main {
   height: 48px;
   background-color: var(--Very-light-grayish-cyan);
   border: none;
+  text-align: right;
+  padding: 0 10px 0 0;
+  color:var(--Grayish-cyan);
+  font-weight: 700;
+  font-size: 16px;
 }
 .input-container input:hover {
   border: 2px solid var(--Light-green-cyan);

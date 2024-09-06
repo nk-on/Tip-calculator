@@ -26,6 +26,7 @@ function saveInputs(billAmount, amountOfPeople) {
 function clearInputs() {
   billInput.value = "";
   amountOfPeopleInput.value = "";
+  customInput.value = "";
 }
 function displayResults(tipAmount, totalAmount, currencySign) {
   tipAmountResultContainer.textContent = `${currencySign} ${String(tipAmount)}`;

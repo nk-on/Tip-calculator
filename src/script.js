@@ -15,6 +15,7 @@ const initialTotalAmount = localStorage.getItem("totalAmount") || "";
 const currencyOptions = document.querySelector("#currency-selector");
 const errorMesseges = document.querySelectorAll('.error-messege');
 let percentageAmount = 5;
+let errorMessege;
 function saveToLocalStorage(tipAmount, totalAmount) {
   localStorage.setItem("tipAmount", tipAmount);
   localStorage.setItem("totalAmount", totalAmount);
@@ -41,10 +42,12 @@ function resetData() {
   localStorage.clear();
 }
 function invalidInput(input) {
-  if (isNaN(input)) {
+  if(input === 0){
+    errorMessege = "Can't be zero"
     return true;
   }
-  if (input <= 0) {
+  if (input < 0) {
+    errorMessege = "Can't be negative"
     return true;
   }
   return false;
@@ -60,12 +63,12 @@ function calculate() {
     */
     if(invalidInput(billAmount)){
       clearInputs();
-      addErrorState(billInput,errorMesseges[0]);
+      addErrorState(errorMessege,billInput,errorMesseges[0]);
       return;
     };
     if(invalidInput(amountOfPeople)){
       clearInputs();
-      addErrorState(amountOfPeopleInput,errorMesseges[1]);
+      addErrorState(errorMessege,amountOfPeopleInput,errorMesseges[1]);
       return;
     };
     removeErrorState(errorMesseges);

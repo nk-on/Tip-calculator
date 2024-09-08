@@ -1,6 +1,8 @@
 const inputForms = document.querySelectorAll('.input-form'); 
-function addErrorState(inputContainer,errorMessegeContainer){
+function addErrorState(messege,inputContainer,errorMessegeContainer){
+    console.log(errorMessegeContainer)
     errorMessegeContainer.style.display = 'block';
+    errorMessegeContainer.textContent = messege;
     inputContainer.style.border = '2px solid #E17457'
 };
 function removeErrorState(errorMessegeContainers){

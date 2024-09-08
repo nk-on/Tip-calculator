@@ -58,11 +58,6 @@ function calculate() {
     /*Setting percentage amount -  if user clicked on percentage button,  setting percentage amount as 
      data set property of this button otherwise number which was entered by user in custom form
     */
-    // if (invalidInput(billAmount, amountOfPeople)) {
-    //   clearInputs();
-    //   addErrorState();
-    //   return;
-    // }
     if(invalidInput(billAmount)){
       clearInputs();
       addErrorState(billInput,errorMesseges[0]);
@@ -73,7 +68,7 @@ function calculate() {
       addErrorState(amountOfPeopleInput,errorMesseges[1]);
       return;
     };
-    removeErrorState();
+    removeErrorState(errorMesseges);
     const tipAmount = (billAmount * percentageAmount) / 100;
     const totalAmount = (tipAmount * amountOfPeople).toFixed(2);
     saveInputs(billAmount, amountOfPeople);

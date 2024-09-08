@@ -1,5 +1,6 @@
 "use strict";
 import { currencySign } from "./currencyConversion.js";
+import { addErrorState, removeErrorState } from "./errorState.js";
 const billInput = document.querySelector("#bill-input");
 const tipPercentageButtons = document.querySelectorAll(".tip-percentage");
 const customInput = document.querySelector("#custom-input");
@@ -12,6 +13,7 @@ otherwise empty string*/
 const initialTipAmount = localStorage.getItem("tipAmount") || "";
 const initialTotalAmount = localStorage.getItem("totalAmount") || "";
 const currencyOptions = document.querySelector("#currency-selector");
+const errorMesseges = document.querySelectorAll('.error-messege');
 let percentageAmount = 5;
 function saveToLocalStorage(tipAmount, totalAmount) {
   localStorage.setItem("tipAmount", tipAmount);
@@ -38,11 +40,11 @@ function resetData() {
   currencyOptions.value = "USD";
   localStorage.clear();
 }
-function invalidInput(billInput, amountOfPeople) {
-  if (isNaN(billInput) || isNaN(amountOfPeople)) {
+function invalidInput(input) {
+  if (isNaN(input)) {
     return true;
   }
-  if (billInput <= 0 || amountOfPeople <= 0) {
+  if (input <= 0) {
     return true;
   }
   return false;
@@ -56,11 +58,22 @@ function calculate() {
     /*Setting percentage amount -  if user clicked on percentage button,  setting percentage amount as 
      data set property of this button otherwise number which was entered by user in custom form
     */
-    if (invalidInput(billAmount, amountOfPeople)) {
-      alert("Invalid input");
+    // if (invalidInput(billAmount, amountOfPeople)) {
+    //   clearInputs();
+    //   addErrorState();
+    //   return;
+    // }
+    if(invalidInput(billAmount)){
       clearInputs();
+      addErrorState(billInput,errorMesseges[0]);
       return;
-    }
+    };
+    if(invalidInput(amountOfPeople)){
+      clearInputs();
+      addErrorState(amountOfPeopleInput,errorMesseges[1]);
+      return;
+    };
+    removeErrorState();
     const tipAmount = (billAmount * percentageAmount) / 100;
     const totalAmount = (tipAmount * amountOfPeople).toFixed(2);
     saveInputs(billAmount, amountOfPeople);
@@ -94,5 +107,6 @@ export {
   initialTotalAmount,
   billInput,
   customInput,
+  amountOfPeopleInput,
   saveToLocalStorage,
 };

@@ -22,7 +22,10 @@
   <main>
     <form class="placeholder">
       <div class="input-container bill-container">
-        <label for="bill-input">Bill</label>
+        <div class="label-container">
+          <label for="bill-input">Bill</label>
+          <label for="bill-input" class = 'error-messege'>Error</label>
+        </div>
         <input  type="number" name="bill-input" id="bill-input"  class = "input-form">
       </div>
       <div class="input-container percenatge-container">
@@ -30,14 +33,17 @@
         <div class="percentage-buttons">
           <button class="tip-percentage" data-percentage="5">5%</button>
           <button class="tip-percentage" data-percentage="10">10%</button>
-          <button class="tip-percentage" data-percentage="15">15%</button>
+          <button class="tip-percentage" data-percentage="15" id = "custom-button">15%</button>
           <button class="tip-percentage" data-percentage="25">25%</button>
           <button class="tip-percentage" data-percentage="50">50%</button>
           <input type="number" name="custom-input" id="custom-input" placeholder="Custom">
         </div>
       </div>
       <div class="input-container">
-        <label for="number-of-people-input">Number of people</label>
+        <div class="label-container">
+          <label for="number-of-people-input">Number of people</label>
+          <label for="bill-input" class = 'error-messege'>Error</label>
+        </div>
         <div class="input-form-container">
           <img src="images/icon-person.svg" alt="person">
           <input inputmode= "numeric" type="number" name="number-of-people-input" id="number-of-people-input"  class = "input-form">
@@ -80,6 +86,7 @@
   </div>
   <script src="src/script.js" type="module"></script>
   <script type="module" src="src/currencyConversion.js"></script>
+  <script type = "module" src="src/errorState.js"></script>
 </body>
 
 </html>

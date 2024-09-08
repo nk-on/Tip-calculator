@@ -12,6 +12,7 @@
   --Grayish-cyan: hsl(184, 14%, 56%);
   --Light-grayish-cyan: hsl(185, 41%, 84%);
   --Very-light-grayish-cyan: hsla(185, 38%, 97%, 1);
+  --Light-red:hsla(13, 70%, 61%, 1);
   --White: hsla(0, 0%, 100%, 1);
 }
 body {
@@ -107,6 +108,15 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 #custom-button:hover{
   background-color: var(--Light-green-cyan);
+}
+.label-container{
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+}
+.error-messege{
+  display: none;
+  color: var(--Light-red);
 }
 /*Styling container which displays calculation results*/
 .results-container {

@@ -37,6 +37,7 @@ function displayResults(tipAmount, totalAmount, currencySign) {
 }
 function resetData() {
   clearInputs();
+  if(errorMessege) removeErrorState(errorMesseges);
   displayResults("", "", "$");
   currencyOptions.value = "USD";
   localStorage.clear();

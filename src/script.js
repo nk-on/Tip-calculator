@@ -19,8 +19,6 @@ let errorMessege;
 function saveToLocalStorage(tipAmount, totalAmount) {
   localStorage.setItem("tipAmount", tipAmount);
   localStorage.setItem("totalAmount", totalAmount);
-  // localStorage.setItem('billAmount',billAmount);
-  // localStorage.setItem('amountOfPeople',amountOfPeople);
 }
 function saveInputs(billAmount, amountOfPeople) {
   localStorage.setItem("billAmount", billAmount);
@@ -43,17 +41,17 @@ function resetData() {
   localStorage.clear();
 }
 function amountOfPeopleIsDecimal(input){
-  if(Number(input)%1 !== 0){
+  if(input%1 !== 0){
     errorMessege = "Can't be decimal";
     return true;
   };
 }
 function invalidInput(input) {
-  if (input !== "" && Number(input) === 0) {
+  if (input !== "" && input === 0) {
     errorMessege = "Can't be zero";
     return true;
   }
-  if (Number(input) < 0) {
+  if (input < 0) {
     errorMessege = "Can't be negative";
     return true;
   }
@@ -83,14 +81,13 @@ function setPercentage(e) {
   } else {
     percentageAmount = this.dataset.percentage;
   }
-  // percentageAmount = Number(this.dataset.percentage);
   calculate();
 }
 tipPercentageButtons.forEach((button) => {
   button.addEventListener("click", setPercentage);
 });
 billInput.addEventListener("input", () => {
-  if (invalidInput(billInput.value)) {
+  if (invalidInput(Number(billInput.value))) {
     clearInputs();
     addErrorState(errorMessege, billInput, errorMesseges[0]);
     return;
@@ -99,7 +96,7 @@ billInput.addEventListener("input", () => {
   calculate();
 });
 amountOfPeopleInput.addEventListener("input", () => {
-  if (invalidInput(amountOfPeopleInput.value)) {
+  if (invalidInput(Number(amountOfPeopleInput.value))) {
     clearInputs();
     addErrorState(errorMessege, amountOfPeopleInput, errorMesseges[1]);
     return;

@@ -1,7 +1,6 @@
 'use strict'
 import {
   billInput,
-  customInput,
   displayResults,
   saveToLocalStorage,
 } from './script.js';
@@ -29,7 +28,6 @@ function changeSign(currency) {
 */
 async function getCurrencyRates(totalAmount, tipAmount, targetCurrency) {
   if(!totalAmount || !tipAmount){
-    console.log('i work')
     return;
   }
   const tipAmountData = fetch(

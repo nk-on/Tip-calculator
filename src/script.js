@@ -13,7 +13,7 @@ otherwise empty string*/
 const initialTipAmount = localStorage.getItem("tipAmount") || "";
 const initialTotalAmount = localStorage.getItem("totalAmount") || "";
 const currencyOptions = document.querySelector("#currency-selector");
-const errorMesseges = document.querySelectorAll('.error-messege');
+const errorMesseges = document.querySelectorAll(".error-messege");
 let percentageAmount = 5;
 let errorMessege;
 function saveToLocalStorage(tipAmount, totalAmount) {
@@ -37,18 +37,18 @@ function displayResults(tipAmount, totalAmount, currencySign) {
 }
 function resetData() {
   clearInputs();
-  if(errorMessege) removeErrorState(errorMesseges);
+  if (errorMessege) removeErrorState(errorMesseges);
   displayResults("", "", "$");
   currencyOptions.value = "USD";
   localStorage.clear();
 }
 function invalidInput(input) {
-  if(input === 0){
-    errorMessege = "Can't be zero"
+  if (input !== "" && Number(input) === 0) {
+    errorMessege = "Can't be zero";
     return true;
   }
-  if (input < 0) {
-    errorMessege = "Can't be negative"
+  if (Number(input) < 0) {
+    errorMessege = "Can't be negative";
     return true;
   }
   return false;
@@ -62,17 +62,6 @@ function calculate() {
     /*Setting percentage amount -  if user clicked on percentage button,  setting percentage amount as 
      data set property of this button otherwise number which was entered by user in custom form
     */
-    if(invalidInput(billAmount)){
-      clearInputs();
-      addErrorState(errorMessege,billInput,errorMesseges[0]);
-      return;
-    };
-    if(invalidInput(amountOfPeople)){
-      clearInputs();
-      addErrorState(errorMessege,amountOfPeopleInput,errorMesseges[1]);
-      return;
-    };
-    removeErrorState(errorMesseges);
     const tipAmount = (billAmount * percentageAmount) / 100;
     const totalAmount = (tipAmount * amountOfPeople).toFixed(2);
     saveInputs(billAmount, amountOfPeople);
@@ -93,8 +82,24 @@ function setPercentage(e) {
 tipPercentageButtons.forEach((button) => {
   button.addEventListener("click", setPercentage);
 });
-billInput.addEventListener("input", calculate);
-amountOfPeopleInput.addEventListener("input", calculate);
+billInput.addEventListener("input", () => {
+  if (invalidInput(billInput.value)) {
+    clearInputs();
+    addErrorState(errorMessege, billInput, errorMesseges[0]);
+    return;
+  }
+  removeErrorState(errorMesseges);
+  calculate();
+});
+amountOfPeopleInput.addEventListener("input", () => {
+  if (invalidInput(amountOfPeopleInput.value)) {
+    clearInputs();
+    addErrorState(errorMessege, amountOfPeopleInput, errorMesseges[1]);
+    return;
+  }
+  removeErrorState(errorMesseges);
+  calculate();
+});
 resetButton.addEventListener("click", resetData);
 customInput.addEventListener("input", setPercentage);
 displayResults(initialTipAmount, initialTotalAmount, currencySign);

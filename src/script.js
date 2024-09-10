@@ -42,6 +42,12 @@ function resetData() {
   currencyOptions.value = "USD";
   localStorage.clear();
 }
+function amountOfPeopleIsDecimal(input){
+  if(Number(input)%1 !== 0){
+    errorMessege = "Can't be decimal";
+    return true;
+  };
+}
 function invalidInput(input) {
   if (input !== "" && Number(input) === 0) {
     errorMessege = "Can't be zero";
@@ -51,6 +57,7 @@ function invalidInput(input) {
     errorMessege = "Can't be negative";
     return true;
   }
+  if(amountOfPeopleIsDecimal(input)) return true;
   return false;
 }
 function calculate() {
